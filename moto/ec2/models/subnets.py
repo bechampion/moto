@@ -321,7 +321,7 @@ class SubnetBackend:
         availability_zone_id: Optional[str] = None,
         tags: Optional[Dict[str, Dict[str, str]]] = None,
     ) -> Subnet:
-        subnet_id = random_subnet_id()
+        subnet_id = f"subnet-{availability_zone}"
         # Validate VPC exists and the supplied CIDR block is a subnet of the VPC's
         vpc = self.get_vpc(vpc_id)  # type: ignore[attr-defined]
         vpc_cidr_blocks = [
